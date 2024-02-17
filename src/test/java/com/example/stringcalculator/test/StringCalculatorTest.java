@@ -23,4 +23,12 @@ public class StringCalculatorTest {
         StringCalculator calculator=new StringCalculator();
         assertEquals(2,calculator.add("2"));
     }
+
+    @Test
+    public  void  testAnyAmountofNumbers(){
+        StringCalculator calculator=new StringCalculator();
+        assertEquals(10,calculator.add("1,2,3,4"));
+    }
+
+
 }
