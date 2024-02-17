@@ -57,4 +57,11 @@ public class StringCalculatorTest {
             assertTrue(exception.getMessage().trim().contains("-2, -4"));
         }
     }
+
+    @Test
+    public void testNumbersBiggerThan1000ShouldBeIgnored() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("2,1001");
+        assertEquals(2, result);
+    }
 }
