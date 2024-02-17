@@ -4,6 +4,9 @@ import com.example.stringcalculator.StringCalculator;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class StringCalculatorTest {
     @Test
@@ -42,5 +45,16 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         int result = calculator.add("//;\n1;2");
         assertEquals(3, result);
+    }
+
+    @Test
+    public void testNegativeNumbersShouldThrowException() {
+        StringCalculator calculator = new StringCalculator();
+        try {
+            calculator.add("1,-2,3,-4");
+            fail("Expected IllegalArgumentException was not thrown");
+        } catch (IllegalArgumentException exception) {
+            assertTrue(exception.getMessage().trim().contains("-2, -4"));
+        }
     }
 }
