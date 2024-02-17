@@ -2,14 +2,15 @@ package com.example.stringcalculator;
 
 public class StringCalculator {
     public int add(String numbers) {
-        if(numbers.isEmpty()){
-            return  0;
+        if (numbers.isEmpty()) {
+            return 0;
         }
-        String[] numberArray=numbers.split(",");
-        int sum=0;
-        for(String num: numberArray){
-            sum+=Integer.parseInt(num);
+
+        String[] nums = numbers.split("[\n,]");
+        int sum = 0;
+        for (String num : nums) {
+            sum += Integer.parseInt(num);
         }
-        return  sum;
+        return sum;
     }
 }
