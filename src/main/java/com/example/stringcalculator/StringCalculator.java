@@ -6,7 +6,13 @@ public class StringCalculator {
             return 0;
         }
 
-        String[] nums = numbers.split("[\n,]");
+        String delimiter = ",";
+        if (numbers.startsWith("//")) {
+            delimiter = String.valueOf(numbers.charAt(2));
+            numbers = numbers.substring(4);
+        }
+
+        String[] nums = numbers.split("[\n" + delimiter + "]");
         int sum = 0;
         for (String num : nums) {
             sum += Integer.parseInt(num);
